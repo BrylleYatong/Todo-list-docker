@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  frontend:
+    container_name: frontend
+    image: frontend
+    build: 
+      context: ./
+      dockerfile: frontend.dockerfile
+    ports:
+      - 3200:3000
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:4000
+    restart: always
+volumes:
+  pgdata: {}
